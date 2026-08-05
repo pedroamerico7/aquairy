@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 80" role="img" aria-labelledby="title">
+  <title id="title">Aquairy symbol</title>
+  <defs>
+    <linearGradient id="aquairy-gradient" x1="8" y1="16" x2="132" y2="66" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00c9c7"/>
+      <stop offset="0.48" stop-color="#078cdd"/>
+      <stop offset="1" stop-color="#0877d1"/>
+    </linearGradient>
+  </defs>
+  <path d="M10 40C18 17 38 12 54 26L88 57C104 71 124 62 130 40C124 18 104 9 88 23L52 56C36 70 17 62 10 40Z" fill="none" stroke="url(#aquairy-gradient)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
