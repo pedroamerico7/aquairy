@@ -54,7 +54,7 @@
     const form=document.querySelector('#inquiry-form');
     const status=document.querySelector('.form-status');
     document.querySelectorAll('[data-contact-open]').forEach(button=>button.addEventListener('click',event=>{event.preventDefault();modal.classList.add('is-open');document.body.style.overflow='hidden';modal.querySelector('.modal-close').focus()}));
-    function closeModal(){modal.classList.remove('is-open');document.body.style.overflow='';status.textContent='';status.classList.remove('error')}
+    function closeModal(){const submit=form.querySelector('button[type="submit"]');modal.classList.remove('is-open');document.body.style.overflow='';status.textContent='';status.classList.remove('error');submit.disabled=false;submit.textContent='Send inquiry';form.reset()}
     modal.querySelector('.modal-close').addEventListener('click',closeModal);
     modal.addEventListener('click',event=>{if(event.target===modal)closeModal()});
     document.addEventListener('keydown',event=>{if(event.key==='Escape'&&modal.classList.contains('is-open'))closeModal()});

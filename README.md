@@ -35,6 +35,3 @@ Verify `send.aquairy.com` in Resend before testing production delivery. Never co
 ## Positioning note
 
 Aquairy is presented as a brand concept available for acquisition. Product interfaces and possible applications are illustrative and do not represent an operating company or live technology.
-
-
-
