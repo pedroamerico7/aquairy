@@ -24,7 +24,13 @@ After the first successful deployment, add `aquairy.com` under **Custom domains*
 
 ## Contact configuration
 
-The acquisition buttons currently use `hello@aquairy.com`. Confirm that this address is routed before publishing or replace it in `index.html`.
+The acquisition form is processed by a Cloudflare Pages Function and delivered with Resend. Configure these values under **Cloudflare Pages → Settings → Variables and Secrets**:
+
+- `RESEND_API_KEY` — encrypted secret created in Resend
+- `INQUIRY_TO_EMAIL` — destination inbox that will receive inquiries
+- `RESEND_FROM_EMAIL` — verified sender, recommended value: `Aquairy Offers <offers@send.aquairy.com>`
+
+Verify `send.aquairy.com` in Resend before testing production delivery. Never commit the Resend API key to this repository.
 
 ## Positioning note
 
