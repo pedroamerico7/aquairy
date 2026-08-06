@@ -36,3 +36,5 @@ The current setup reuses the verified `send.quantivalue.com` sending domain. Nev
 ## Positioning note
 
 Aquairy is presented as a brand concept available for acquisition. Product interfaces and possible applications are illustrative and do not represent an operating company or live technology.
+
+
