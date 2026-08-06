@@ -19,7 +19,7 @@ const escapeHtml = (value) => String(value)
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  if (!env.RESEND_API_KEY || !env.INQUIRY_TO_EMAIL || !env.RESEND_FROM_EMAIL) {
+  if (!env.RESEND_API_KEY || !env.INQUIRY_TO_EMAIL || !env.RESEND_FROM_EMAIL || !env.TURNSTILE_SECRET_KEY) {
     return json({ error: "The inquiry service is not configured yet." }, 503);
   }
 
@@ -42,10 +42,36 @@ export async function onRequestPost(context) {
   const company = clean(input.company, 120);
   const offer = clean(input.offer, 30);
   const message = clean(input.message, 3000);
+  const turnstileToken = clean(input.turnstileToken, 2048);
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (!name || !emailPattern.test(email) || !message) {
     return json({ error: "Please provide a valid name, email and message." }, 400);
+  }
+
+  if (!turnstileToken) {
+    return json({ error: "Please complete the security verification." }, 400);
+  }
+
+  let verification;
+  try {
+    const verifyResponse = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        secret: env.TURNSTILE_SECRET_KEY,
+        response: turnstileToken,
+        remoteip: request.headers.get("CF-Connecting-IP") || undefined,
+        idempotency_key: crypto.randomUUID()
+      })
+    });
+    verification = await verifyResponse.json();
+  } catch {
+    return json({ error: "Security verification is temporarily unavailable." }, 503);
+  }
+
+  if (!verification.success || verification.action !== "inquiry" || verification.hostname !== "aquairy.com") {
+    return json({ error: "Security verification failed. Please try again." }, 400);
   }
 
   const safe = {

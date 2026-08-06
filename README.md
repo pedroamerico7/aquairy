@@ -28,11 +28,11 @@ The acquisition form is processed by a Cloudflare Pages Function and delivered w
 
 - `RESEND_API_KEY` — encrypted secret created in Resend
 - `INQUIRY_TO_EMAIL` — destination inbox that will receive inquiries
-- `RESEND_FROM_EMAIL` — verified sender, recommended value: `Aquairy Offers <offers@send.aquairy.com>`
+- `RESEND_FROM_EMAIL` — verified sender: `Aquairy Offers <offers@send.quantivalue.com>`
+- `TURNSTILE_SECRET_KEY` — encrypted secret for the `Aquairy Inquiry` Turnstile widget
 
-Verify `send.aquairy.com` in Resend before testing production delivery. Never commit the Resend API key to this repository.
+The current setup reuses the verified `send.quantivalue.com` sending domain. Never commit the Resend API key or Turnstile secret to this repository.
 
 ## Positioning note
 
 Aquairy is presented as a brand concept available for acquisition. Product interfaces and possible applications are illustrative and do not represent an operating company or live technology.
-
