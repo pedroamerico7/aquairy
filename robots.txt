@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://justiciai.com/sitemap.xml
+Sitemap: https://aquairy.com/sitemap.xml

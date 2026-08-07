@@ -1,31 +1,42 @@
-# JusticiaAI.com landing page
+# Aquairy.com
 
-Static landing page prepared for GitHub and Cloudflare Pages, with a Pages
-Function that delivers acquisition inquiries through Resend.
+Static acquisition landing page for **Aquairy.com**, an acquisition-ready brand concept for water intelligence, climate technology and infrastructure analytics.
 
-## Cloudflare Pages
+## Repository structure
 
-- Framework preset: None
-- Build command: leave blank
-- Build output directory: `/`
+- `index.html` — production landing page
+- `404.html` — fallback page
+- `_headers` — Cloudflare Pages cache rules
+- `assets/favicon.svg` — site icon
+- `robots.txt` and `sitemap.xml` — search-engine directives
 
-The custom domain should be configured as `justiciai.com` after deployment.
+## Cloudflare Pages configuration
 
-## Acquisition form
+This project is plain static HTML and does not require a build step.
 
-The `Make an Offer` and `Ask a Question` buttons open an embedded acquisition
-form. The browser posts JSON to the same-origin `/api/inquiry` endpoint. The
-endpoint is implemented in `functions/api/inquiry.js`, so no separate Worker
-or `workers.dev` URL is required. Buyers are never asked to verify or confirm
-their email address.
+- Framework preset: `None`
+- Build command: `exit 0`
+- Build output directory: `.`
+- Root directory: leave blank
+- Production branch: `main`
 
-Required Cloudflare Pages variables/secrets:
+After the first successful deployment, add `aquairy.com` under **Custom domains** in the Cloudflare Pages project.
 
-- `RESEND_API_KEY` — secret; reuse the existing Resend API key.
-- `RESEND_FROM_EMAIL` — sender on the Resend-verified `quantivalue.com` domain,
-  for example `JusticiaAI <offers@quantivalue.com>`.
-- `INQUIRY_TO_EMAIL` — `offers@justiciai.com`.
+## Contact configuration
 
-Cloudflare Email Routing can continue forwarding `offers@justiciai.com` to the
-owner's Gmail inbox. After adding or changing the variables, redeploy the Pages
-project so the Function receives the current configuration.
+The acquisition form is processed by a Cloudflare Pages Function and delivered with Resend. Configure these values under **Cloudflare Pages → Settings → Variables and Secrets**:
+
+- `RESEND_API_KEY` — encrypted secret created in Resend
+- `INQUIRY_TO_EMAIL` — destination inbox that will receive inquiries
+- `RESEND_FROM_EMAIL` — verified sender: `Aquairy Offers <offers@quantivalue.com>`
+- `TURNSTILE_SECRET_KEY` — encrypted secret for the `Aquairy Inquiry` Turnstile widget
+
+The current setup reuses the verified `quantivalue.com` sending domain. Use a
+Resend API key with Sending access for `quantivalue.com`. Never commit the
+Resend API key or Turnstile secret to this repository.
+
+## Positioning note
+
+Aquairy is presented as a brand concept available for acquisition. Product interfaces and possible applications are illustrative and do not represent an operating company or live technology.
+
+

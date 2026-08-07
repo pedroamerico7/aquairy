@@ -1,661 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JusticiAI.com — Premium Legal AI Domain for Acquisition</title>
-<meta name="description" content="JusticiAI.com fuses justicia — justice — with AI in a concise .COM identity for legal research, contract review, compliance, e-discovery and next-generation legal technology.">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#F0E9D8">
-<link rel="canonical" href="https://justiciai.com/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://justiciai.com/">
-<meta property="og:title" content="JusticiAI.com — Premium Legal AI Domain">
-<meta property="og:description" content="Justicia meets AI in a concise .COM identity for the next generation of legal technology. Available for acquisition.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JusticiAI.com — Premium Legal AI Domain">
-<meta name="twitter:description" content="Justicia meets AI in a concise .COM identity for the next generation of legal technology. Available for acquisition.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper: #F0E9D8;
-    --paper-dark: #E4D9BE;
-    --ink: #1E2A3A;
-    --ink-soft: #3A3428;
-    --brass: #9C7B3D;
-    --burgundy: #6E2430;
-    --rule: #C7B99C;
-  }
-
-  *{ box-sizing:border-box; margin:0; padding:0; }
-
-  html{ scroll-behavior:smooth; }
-
-  body{
-    background:
-      radial-gradient(ellipse at top left, rgba(158,123,61,0.06), transparent 55%),
-      var(--paper);
-    color:var(--ink-soft);
-    font-family:'Source Serif 4', serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  .sheet{
-    max-width:760px;
-    margin:0 auto;
-    padding:56px 24px 80px;
-  }
-
-  /* letterhead */
-  .letterhead{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding-bottom:20px;
-    border-bottom:2px solid var(--ink);
-    margin-bottom:10px;
-  }
-
-  .letterhead-title{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--ink);
-  }
-
-  .letterhead-title span{
-    display:block;
-    font-size:10px;
-    color:var(--brass);
-    margin-top:3px;
-    letter-spacing:0.1em;
-  }
-
-  .seal{
-    width:64px;
-    height:64px;
-    flex-shrink:0;
-    animation: stamp 0.7s cubic-bezier(.2,1.4,.4,1) both;
-    animation-delay:0.15s;
-  }
-
-  @keyframes stamp{
-    0%{ opacity:0; transform: scale(1.6) rotate(-14deg); }
-    100%{ opacity:1; transform: scale(1) rotate(-4deg); }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .seal{ animation:none; transform:rotate(-4deg); }
-  }
-
-  /* dossier meta line */
-  .dossier-meta{
-    display:flex;
-    justify-content:space-between;
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.06em;
-    color:var(--ink-soft);
-    opacity:0.65;
-    padding:14px 0 40px;
-    flex-wrap:wrap;
-    gap:8px;
-  }
-
-  /* hero */
-  .eyebrow{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    color:var(--burgundy);
-    margin-bottom:18px;
-  }
-
-  h1{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:clamp(34px, 6vw, 52px);
-    line-height:1.08;
-    color:var(--ink);
-    letter-spacing:-0.01em;
-    margin-bottom:24px;
-  }
-
-  h1 em{
-    font-style:italic;
-    font-weight:500;
-    color:var(--burgundy);
-  }
-
-  .lede{
-    font-size:18px;
-    max-width:56ch;
-    color:var(--ink-soft);
-  }
-
-  .domain-strip{
-    font-family:'JetBrains Mono', monospace;
-    font-size:15px;
-    letter-spacing:0.04em;
-    color:var(--ink);
-    background:var(--paper-dark);
-    border:1px solid var(--rule);
-    display:inline-block;
-    padding:8px 16px;
-    margin-top:26px;
-    border-radius:2px;
-  }
-
-  .hero-actions{
-    display:flex;
-    gap:12px;
-    margin-top:18px;
-    flex-wrap:wrap;
-  }
-
-  /* recitals */
-  .recitals{
-    margin-top:56px;
-    padding:28px 30px;
-    background:var(--paper-dark);
-    border-left:3px solid var(--brass);
-    font-size:15px;
-    color:var(--ink-soft);
-  }
-
-  .recitals p{ margin-bottom:10px; }
-  .recitals p:last-child{ margin-bottom:0; }
-  .recitals b{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.08em;
-    color:var(--burgundy);
-    margin-right:8px;
-  }
-
-  /* numbered clauses */
-  .clause{
-    margin-top:56px;
-    padding-top:36px;
-    border-top:1px solid var(--rule);
-  }
-
-  .clause-num{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:14px;
-    letter-spacing:0.1em;
-    color:var(--brass);
-    display:block;
-    margin-bottom:10px;
-  }
-
-  .clause h2{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:26px;
-    color:var(--ink);
-    margin-bottom:14px;
-  }
-
-  .clause p{
-    max-width:60ch;
-    margin-bottom:14px;
-  }
-
-  .legal-term{
-    color:var(--ink);
-    font-family:'Fraunces', serif;
-    font-weight:600;
-  }
-
-  .fit-list{
-    list-style:none;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-    margin-top:18px;
-  }
-
-  .fit-list li{
-    font-size:14.5px;
-    padding:14px 16px;
-    background:var(--paper-dark);
-    border:1px solid var(--rule);
-    border-radius:2px;
-  }
-
-  .fit-list li b{
-    display:block;
-    font-family:'JetBrains Mono', monospace;
-    font-size:10px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--burgundy);
-    margin-bottom:6px;
-  }
-
-  @media (max-width:560px){
-    .fit-list{ grid-template-columns:1fr; }
-  }
-
-  .stat-row{
-    display:flex;
-    gap:32px;
-    margin-top:22px;
-    flex-wrap:wrap;
-  }
-
-  .stat b{
-    display:block;
-    font-family:'Fraunces', serif;
-    font-size:30px;
-    color:var(--ink);
-    font-weight:600;
-  }
-  .stat span{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.05em;
-    color:var(--ink-soft);
-    opacity:0.7;
-  }
-
-  /* petition / CTA */
-  .petition{
-    margin-top:64px;
-    padding:40px 34px;
-    background:var(--ink);
-    color:var(--paper);
-    border-radius:3px;
-    position:relative;
-    overflow:hidden;
-  }
-
-  .petition::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: repeating-linear-gradient(135deg, rgba(240,233,216,0.025) 0 2px, transparent 2px 14px);
-    pointer-events:none;
-  }
-
-  .petition h2{
-    font-family:'Fraunces', serif;
-    font-size:24px;
-    font-weight:600;
-    margin-bottom:12px;
-  }
-
-  .petition p{
-    font-size:14.5px;
-    color:var(--paper);
-    opacity:0.8;
-    max-width:52ch;
-    margin-bottom:26px;
-  }
-
-  .cta-row{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-  }
-
-  .btn{
-    font-family:'JetBrains Mono', monospace;
-    font-size:13px;
-    letter-spacing:0.05em;
-    text-transform:uppercase;
-    padding:14px 22px;
-    border-radius:2px;
-    text-decoration:none;
-    display:inline-block;
-    transition: transform 0.15s ease, background 0.15s ease;
-    cursor:pointer;
-    border:1px solid transparent;
-  }
-
-  .btn:focus-visible{
-    outline:2px solid var(--brass);
-    outline-offset:3px;
-  }
-
-  .btn-primary{
-    background:var(--brass);
-    color:var(--ink);
-  }
-  .btn-primary:hover{ transform:translateY(-1px); background:#B08F49; }
-
-  .btn-secondary{
-    background:transparent;
-    color:var(--paper);
-    border-color:rgba(240,233,216,0.35);
-  }
-  .btn-secondary:hover{ border-color:var(--paper); }
-
-  .offer-panel{
-    margin-top:28px;
-    padding-top:28px;
-    border-top:1px solid rgba(240,233,216,0.25);
-  }
-
-  .offer-panel[hidden]{ display:none; }
-
-  .offer-form{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-    position:relative;
-    z-index:1;
-  }
-
-  .form-field{
-    display:flex;
-    flex-direction:column;
-    gap:7px;
-  }
-
-  .form-field.full{ grid-column:1 / -1; }
-
-  .form-field label{
-    font-family:'JetBrains Mono', monospace;
-    font-size:10px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--paper);
-    opacity:0.78;
-  }
-
-  .form-field input,
-  .form-field select,
-  .form-field textarea{
-    width:100%;
-    border:1px solid rgba(240,233,216,0.32);
-    border-radius:2px;
-    background:rgba(240,233,216,0.07);
-    color:var(--paper);
-    padding:12px 13px;
-    font:15px 'Source Serif 4', serif;
-    outline:none;
-  }
-
-  .form-field select option{ color:var(--ink); background:var(--paper); }
-  .form-field textarea{ min-height:120px; resize:vertical; }
-
-  .form-field input:focus,
-  .form-field select:focus,
-  .form-field textarea:focus{
-    border-color:var(--brass);
-    box-shadow:0 0 0 2px rgba(156,123,61,0.15);
-  }
-
-  .form-actions{
-    grid-column:1 / -1;
-    display:flex;
-    align-items:center;
-    gap:16px;
-    flex-wrap:wrap;
-    margin-top:2px;
-  }
-
-  .form-actions .btn{ background:var(--brass); color:var(--ink); }
-
-  .form-note{
-    font-family:'JetBrains Mono', monospace;
-    font-size:10px;
-    line-height:1.55;
-    color:var(--paper);
-    opacity:0.58;
-  }
-
-  .success-notice{
-    margin-bottom:22px;
-    padding:13px 15px;
-    border:1px solid rgba(156,123,61,0.75);
-    color:var(--paper);
-    font-size:14px;
-  }
-
-  @media (max-width:560px){
-    .offer-form{ grid-template-columns:1fr; }
-    .form-field.full{ grid-column:auto; }
-    .form-actions{ grid-column:auto; }
-  }
-
-  /* footer */
-  footer{
-    margin-top:40px;
-    padding-top:24px;
-    border-top:1px solid var(--rule);
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.04em;
-    color:var(--ink-soft);
-    opacity:0.6;
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:8px;
-  }
-  footer a{
-    color:inherit;
-    text-decoration:none;
-  }
-  footer a:hover{ text-decoration:underline; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aquairy.com brings together AQUA + AIRY, with AI embedded naturally in the name — a distinctive .COM brand for water intelligence and climate technology. Available for acquisition.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#071523">
+  <title>Aquairy.com — Water Intelligence Brand Available for Acquisition</title>
+  <link rel="canonical" href="https://aquairy.com/">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aquairy">
+  <meta property="og:url" content="https://aquairy.com/">
+  <meta property="og:title" content="Aquairy.com — Water Intelligence Brand Available for Acquisition">
+  <meta property="og:description" content="AQUA + AIRY + AI — a distinctive .COM brand concept for water intelligence, climate technology and environmental innovation. Available for acquisition.">
+  <meta property="og:image" content="https://aquairy.com/assets/brand-board.png">
+  <meta property="og:image:width" content="1536">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="Aquairy — Water Intelligence brand identity">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aquairy.com — Water Intelligence Brand Available for Acquisition">
+  <meta name="twitter:description" content="AQUA + AIRY + AI — a distinctive .COM brand concept for water intelligence, climate technology and environmental innovation. Available for acquisition.">
+  <meta name="twitter:image" content="https://aquairy.com/assets/brand-board.png">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#071523;--navy:#0b1f33;--blue:#0877d1;--cyan:#00c2c4;--mist:#edf5f7;--slate:#607081;--white:#fff;--line:#dce7eb;--shadow:0 24px 80px rgba(3,24,43,.14);--radius:24px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--navy);background:#fff;line-height:1.6}a{text-decoration:none;color:inherit}.container{width:min(1160px,calc(100% - 40px));margin:auto}
+    .nav{position:fixed;inset:0 0 auto;z-index:20;background:rgba(7,21,35,.78);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(15px)}.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;color:#fff;font:700 20px Manrope;letter-spacing:.16em}.brand small{display:block;color:var(--cyan);font:600 8px Inter;letter-spacing:.34em}.logo{display:block;width:58px;height:auto;flex:none}.nav-links{display:flex;align-items:center;gap:26px;color:#cbd8e2;font-size:14px}.nav-links>a:hover{color:#fff}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 20px;border:1px solid transparent;border-radius:999px;font-weight:700;transition:.22s}.btn-primary{color:#fff;background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 12px 34px rgba(0,151,191,.23)}.btn-primary:hover{transform:translateY(-2px)}.btn-outline{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.04)}
+    .hero{position:relative;overflow:hidden;min-height:92vh;padding:150px 0 90px;color:#fff;background:radial-gradient(circle at 78% 28%,rgba(0,194,196,.18),transparent 27%),radial-gradient(circle at 18% 20%,rgba(8,119,209,.24),transparent 30%),linear-gradient(155deg,#05111e,var(--navy))}.hero:after{content:"";position:absolute;inset:auto -10% -36% -10%;height:58%;opacity:.45;background:repeating-radial-gradient(ellipse at center,rgba(0,194,196,.13) 0 1px,transparent 2px 22px);transform:perspective(900px) rotateX(68deg)}.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}.eyebrow{color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:.19em;text-transform:uppercase}h1,h2,h3{margin:0;font-family:Manrope,Inter,sans-serif;line-height:1.08}h1{max-width:760px;margin-top:18px;font-size:clamp(48px,7vw,82px);letter-spacing:-.045em}.hero-copy{max-width:660px;margin:25px 0 34px;color:#c8d5df;font-size:19px}.actions{display:flex;flex-wrap:wrap;gap:13px}.microcopy{margin-top:18px;color:#849aaa;font-size:12px}.concept{padding:26px;border:1px solid rgba(255,255,255,.14);border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.035));box-shadow:var(--shadow);backdrop-filter:blur(16px)}.concept-ui{min-height:390px;padding:22px;border:1px solid rgba(255,255,255,.09);border-radius:20px;background:#081827}.concept-top{display:flex;justify-content:space-between;gap:15px;color:#8ba1b2;font-size:12px}.badge{padding:5px 9px;border-radius:999px;color:#9eeae7;background:rgba(0,194,196,.11)}.concept-title{margin:34px 0 10px;font:600 26px Manrope;color:#fff}.concept-note{color:#8298aa;font-size:13px}.signal{height:155px;margin-top:25px;border-radius:16px;background:linear-gradient(180deg,rgba(0,194,196,.1),transparent),repeating-linear-gradient(0deg,transparent 0 32px,rgba(255,255,255,.045) 33px),repeating-linear-gradient(90deg,transparent 0 62px,rgba(255,255,255,.045) 63px);overflow:hidden}.signal svg{width:100%;height:100%}.concept-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}.concept-tags span{padding:8px 11px;border:1px solid rgba(255,255,255,.08);border-radius:10px;color:#b8c8d3;background:#0d2438;font-size:11px}
+    .strip{padding:26px 0;color:#90a5b6;background:#081827;border-top:1px solid rgba(255,255,255,.06)}.strip-row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:12px;letter-spacing:.12em;text-transform:uppercase}section{padding:100px 0}.section-head{max-width:800px;margin-bottom:48px}.section-head h2{margin-top:12px;font-size:clamp(36px,5vw,58px);letter-spacing:-.035em}.section-head p{margin:18px 0 0;color:var(--slate);font-size:18px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{padding:29px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:0 12px 40px rgba(11,31,51,.055)}.number{display:grid;place-items:center;width:46px;height:46px;margin-bottom:21px;border-radius:14px;color:var(--blue);font-weight:700;background:linear-gradient(135deg,rgba(8,119,209,.11),rgba(0,194,196,.17))}.card h3{font-size:22px}.card p{margin-bottom:0;color:var(--slate)}
+    .name{background:var(--mist)}.name-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}.name-lockup{padding:40px;border:1px solid rgba(7,21,35,.08);border-radius:28px;background:#fff;box-shadow:var(--shadow)}.name-lockup .big{font:700 clamp(36px,6vw,66px) Manrope;letter-spacing:.12em;color:var(--ink)}.name-lockup .tag{color:var(--blue);font-size:12px;font-weight:700;letter-spacing:.35em}.formula{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:26px;font:700 15px Manrope;letter-spacing:.08em}.formula span{padding:8px 12px;border-radius:999px;color:var(--blue);background:rgba(8,119,209,.08)}.formula span:last-child{color:#007d82;background:rgba(0,194,196,.12)}.formula i{color:#8da0ae;font-style:normal}.word-parts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.word-parts div{padding:15px;border-radius:14px;background:#f4f8fa}.word-parts b{display:block;color:var(--blue)}.word-parts div:last-child b{color:#008d91}.word-parts span{color:var(--slate);font-size:12px}.name-copy h2{font-size:clamp(36px,5vw,58px);letter-spacing:-.035em}.name-copy p{color:var(--slate);font-size:18px}
+    .use-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.use{padding:28px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#fff,#f7fafb)}.use h3{font-size:20px}.use p{margin-bottom:0;color:var(--slate)}
+    .included{color:#fff;background:var(--navy)}.included .section-head p{color:#aab9c5}.package{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.package-item{display:flex;gap:16px;padding:23px;border:1px solid rgba(255,255,255,.11);border-radius:18px;background:rgba(255,255,255,.04)}.check{display:grid;place-items:center;width:28px;height:28px;flex:none;border-radius:50%;color:#061827;background:var(--cyan);font-weight:800}.package-item b{display:block}.package-item span{color:#9fb1bf;font-size:14px}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.process-step{padding:25px;border-top:2px solid var(--cyan);background:#f6f9fa}.process-step em{font-style:normal;color:var(--blue);font-weight:700}.process-step b{display:block;margin:12px 0 4px}.process-step span{color:var(--slate);font-size:14px}
+    .cta{padding:92px 0;text-align:center;color:#fff;background:linear-gradient(135deg,var(--blue),var(--cyan))}.cta h2{max-width:850px;margin:auto;font-size:clamp(38px,5vw,62px)}.cta p{max-width:660px;margin:22px auto 31px;color:rgba(255,255,255,.9)}footer{padding:45px 0;color:#91a5b5;background:#05111d}.footer-row{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap}.legal{max-width:570px;font-size:12px}.footer-claim{color:#fff;font-weight:700}.footer-contact{display:grid;gap:7px;padding:15px 18px;border:1px solid rgba(0,194,196,.35);border-radius:14px;background:rgba(0,194,196,.08)}.footer-contact span{color:#91a5b5;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.footer-contact a{color:#62eeea;font:700 16px Manrope,Inter,sans-serif}.footer-contact a:hover{color:#fff}
+    .modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:20px;background:rgba(3,12,21,.76);backdrop-filter:blur(8px);overflow:auto}.modal.is-open{display:grid}.modal-card{position:relative;width:min(620px,100%);max-height:calc(100vh - 40px);overflow:auto;padding:34px;border:1px solid rgba(255,255,255,.13);border-radius:24px;color:#fff;background:#0b1f33;box-shadow:0 30px 100px rgba(0,0,0,.4)}.modal-card h2{font-size:32px}.modal-card p{color:#b7c7d2}.modal-close{position:absolute;top:14px;right:16px;width:38px;height:38px;border:0;border-radius:50%;color:#fff;background:rgba(255,255,255,.08);font-size:22px;cursor:pointer}.inquiry-form{display:grid;gap:14px;margin-top:24px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:grid;gap:7px}.field label{color:#b7c7d2;font-size:12px;font-weight:700}.field input,.field textarea{width:100%;padding:13px 14px;border:1px solid rgba(255,255,255,.13);border-radius:12px;outline:none;color:#fff;background:#071523;font:500 14px Inter}.field input:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,194,196,.11)}.field textarea{min-height:105px;resize:vertical}.hp-field{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}.turnstile-wrap{min-height:65px;display:flex;align-items:center}.form-actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:4px}.form-status{min-height:22px;color:#9ef0ed;font-size:13px}.form-status.error{color:#ffb3b3}.form-note{margin:0!important;color:#7f96a7!important;font-size:11px}.inquiry-form .btn{cursor:pointer}.inquiry-form .btn:disabled{cursor:wait;opacity:.65}
+    @media(max-width:900px){.hero-grid,.name-grid{grid-template-columns:1fr}.hero{padding-top:125px}.cards,.use-grid{grid-template-columns:1fr 1fr}.process-grid{grid-template-columns:1fr 1fr}.nav-links>a:not(.btn){display:none}}
+    @media(max-width:620px){.container{width:min(100% - 24px,1160px)}section{padding:74px 0}.cards,.use-grid,.package,.process-grid,.word-parts,.form-row{grid-template-columns:1fr}.concept{padding:14px}.hero-copy{font-size:17px}.nav-links{gap:8px}.nav .btn{padding:10px 13px}.brand{font-size:16px}.logo{width:40px}.modal-card{padding:28px 20px}.modal-card h2{font-size:27px}}
+  </style>
 </head>
 <body>
+  <nav class="nav"><div class="container nav-inner"><a class="brand" href="#top" aria-label="Aquairy home"><img class="logo" src="/assets/aquairy-symbol.png" alt=""><span>AQUAIRY<small>WATER INTELLIGENCE</small></span></a><div class="nav-links"><a href="#potential">Potential</a><a href="#package">Package</a><a href="#process">Process</a><a class="btn btn-primary" href="#contact" data-contact-open>Make an Offer</a></div></div></nav>
 
-<div class="sheet">
+  <header class="hero" id="top"><div class="container hero-grid"><div><div class="eyebrow">AQUA + AIRY + AI · Available for acquisition</div><h1>A distinctive name for the future of water intelligence.</h1><p class="hero-copy">Aquairy.com brings together <strong>AQUA</strong> + <strong>AIRY</strong>, with <strong>AI</strong> embedded naturally in the name — connecting water, clarity and intelligent technology in a concise .COM brand.</p><div class="actions"><a class="btn btn-primary" href="#contact" data-contact-open>Make an Offer <span>→</span></a><a class="btn btn-outline" href="#potential">Explore the Brand</a></div><div class="microcopy">Domain and supporting brand assets offered as a transferable acquisition package.</div></div><div class="concept"><div class="concept-ui"><div class="concept-top"><span>Aquairy Intelligence Interface</span><span class="badge">Concept preview</span></div><div class="concept-title">A clear view of complex water systems.</div><div class="concept-note">Illustrative product direction for a future owner. No operating platform or live data is represented.</div><div class="signal"><svg viewBox="0 0 500 160" preserveAspectRatio="none" aria-hidden="true"><polyline fill="none" stroke="#00c2c4" stroke-width="5" points="0,126 54,105 108,113 160,68 215,79 270,50 328,65 382,35 440,48 500,23"/><polyline fill="none" stroke="#0877d1" stroke-width="3" opacity=".85" points="0,138 60,130 120,105 180,120 240,91 300,101 360,72 420,84 500,61"/></svg></div><div class="concept-tags"><span>Monitoring</span><span>Prediction</span><span>Infrastructure</span><span>Environmental data</span></div></div></div></div></header>
 
-  <div class="letterhead">
-    <div class="letterhead-title">
-      Domain Dossier
-      <span>Acquisition Notice</span>
-    </div>
-    <svg class="seal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="50" cy="50" r="47" fill="none" stroke="#9C7B3D" stroke-width="2"/>
-      <circle cx="50" cy="50" r="40" fill="none" stroke="#9C7B3D" stroke-width="1"/>
-      <!-- scales -->
-      <line x1="50" y1="28" x2="50" y2="62" stroke="#6E2430" stroke-width="2"/>
-      <line x1="30" y1="38" x2="70" y2="38" stroke="#6E2430" stroke-width="2"/>
-      <line x1="30" y1="38" x2="24" y2="50" stroke="#6E2430" stroke-width="1.4"/>
-      <line x1="30" y1="38" x2="36" y2="50" stroke="#6E2430" stroke-width="1.4"/>
-      <path d="M24 50 A6 6 0 0 0 36 50 Z" fill="none" stroke="#6E2430" stroke-width="1.4"/>
-      <line x1="70" y1="38" x2="64" y2="50" stroke="#6E2430" stroke-width="1.4"/>
-      <line x1="70" y1="38" x2="76" y2="50" stroke="#6E2430" stroke-width="1.4"/>
-      <path d="M64 50 A6 6 0 0 0 76 50 Z" fill="none" stroke="#6E2430" stroke-width="1.4"/>
-      <!-- circuit base -->
-      <circle cx="50" cy="66" r="3" fill="#9C7B3D"/>
-      <line x1="50" y1="62" x2="50" y2="66" stroke="#9C7B3D" stroke-width="1.4"/>
-      <line x1="50" y1="69" x2="38" y2="76" stroke="#9C7B3D" stroke-width="1.2"/>
-      <line x1="50" y1="69" x2="62" y2="76" stroke="#9C7B3D" stroke-width="1.2"/>
-      <line x1="50" y1="69" x2="50" y2="78" stroke="#9C7B3D" stroke-width="1.2"/>
-      <circle cx="38" cy="76" r="2" fill="#9C7B3D"/>
-      <circle cx="62" cy="76" r="2" fill="#9C7B3D"/>
-      <circle cx="50" cy="78" r="2" fill="#9C7B3D"/>
-    </svg>
-  </div>
+  <div class="strip"><div class="container strip-row"><span>Water technology</span><span>Climate intelligence</span><span>Infrastructure analytics</span><span>Environmental innovation</span><span>Enterprise software</span></div></div>
 
-  <div class="dossier-meta">
-    <span>IN RE: JUSTICIAI.COM</span>
-    <span>STATUS: AVAILABLE FOR ACQUISITION</span>
-  </div>
+  <section id="potential"><div class="container"><div class="section-head"><div class="eyebrow">Brand potential</div><h2>Built around a category that matters.</h2><p>Aquairy combines an intuitive connection to water with the light, modern quality of “airy”, while AI is embedded naturally in the spelling — creating a flexible identity for intelligent water technology, sustainability and infrastructure.</p></div><div class="cards"><article class="card"><div class="number">01</div><h3>Category relevance</h3><p>The “Aqua” opening establishes an immediate relationship with water, aquatic systems and environmental applications.</p></article><article class="card"><div class="number">02</div><h3>Brandable structure</h3><p>Seven letters, balanced pronunciation and a distinctive spelling support recall, with AI reinforcing a natural technology association.</p></article><article class="card"><div class="number">03</div><h3>Global .COM foundation</h3><p>The .COM extension gives a future owner a familiar digital address for an international-facing company or platform.</p></article></div></div></section>
 
-  <p class="eyebrow">Notice of availability</p>
-  <h1>A name where <em>judgment</em><br>meets machine intelligence.</h1>
-  <p class="lede"><b>JusticiAI</b> fuses <i>Justicia</i> — the Spanish word for justice — with AI in a compact overlap: the final “a” of Justicia becomes the “A” in AI. The result is a name that signals legal technology on sight.</p>
+  <section class="name"><div class="container name-grid"><div class="name-lockup"><div class="big">AQUAIRY</div><div class="tag">WATER INTELLIGENCE</div><div class="formula"><span>AQUA</span><i>+</i><span>AIRY</span><i>+</i><span>AI</span></div><div class="word-parts"><div><b>AQUA</b><span>Water, flow and environmental systems.</span></div><div><b>AIRY</b><span>Clarity, openness and a modern character.</span></div><div><b>AI</b><span>Intelligence, prediction and technology.</span></div></div></div><div class="name-copy"><div class="eyebrow">The name</div><h2>Three ideas. One distinctive brand.</h2><p>AQUA establishes the water category. AIRY brings clarity and fluidity. AI is embedded naturally in the name, giving Aquairy an immediate connection to intelligent technology without limiting it to a single product.</p></div></div></section>
 
-  <div class="domain-strip">JusticiAI.com</div>
-  <div class="hero-actions">
-    <button class="btn btn-primary" type="button" data-open-form="offer" aria-controls="offer-panel" aria-expanded="false">Make an Offer</button>
-  </div>
+  <section><div class="container"><div class="section-head"><div class="eyebrow">Possible applications</div><h2>One brand. Several credible directions.</h2><p>These examples illustrate positioning possibilities for a future acquirer; they are not claims about an existing business.</p></div><div class="use-grid"><article class="use"><h3>Water intelligence</h3><p>Monitoring, forecasting, asset analytics and decision support for utilities and infrastructure operators.</p></article><article class="use"><h3>Climate technology</h3><p>Environmental data, resilience planning, resource efficiency and sustainability software.</p></article><article class="use"><h3>Industrial analytics</h3><p>Water use optimization, quality oversight, compliance intelligence and process visibility.</p></article><article class="use"><h3>Agricultural technology</h3><p>Irrigation intelligence, water stress analysis and resource allocation tools.</p></article><article class="use"><h3>Consumer innovation</h3><p>Water quality, hydration, aquatic wellness or connected-device ecosystems.</p></article><article class="use"><h3>Research and data</h3><p>Platforms connecting sensor data, geospatial insight and environmental modeling.</p></article></div></div></section>
 
-  <div class="recitals">
-    <p><b>WHEREAS</b>legal research, drafting, contract review, compliance, and e-discovery are being rebuilt around artificial intelligence;</p>
-    <p><b>WHEREAS</b>a concise category-relevant .COM can communicate purpose before a product demonstration begins;</p>
-    <p><b>WHEREAS</b>JusticiAI carries both legal meaning and AI positioning in a single, memorable identity;</p>
-    <p><b>NOW THEREFORE</b>this domain is offered for acquisition, in whole, to a single buyer.</p>
-  </div>
+  <section class="included" id="package"><div class="container"><div class="section-head"><div class="eyebrow">Acquisition package</div><h2>More than a domain name.</h2><p>The buyer can receive a developed starting point for brand evaluation and launch planning.</p></div><div class="package"><div class="package-item"><div class="check">✓</div><div><b>Aquairy.com</b><span>Transfer of the registered .COM domain through a secure transaction process.</span></div></div><div class="package-item"><div class="check">✓</div><div><b>Visual identity concept</b><span>Logo direction, color system, typography guidance and brand applications.</span></div></div><div class="package-item"><div class="check">✓</div><div><b>Website concept</b><span>Responsive landing-page source files and product-positioning direction.</span></div></div><div class="package-item"><div class="check">✓</div><div><b>Supporting documents</b><span>Brand book, product vision, market-entry framework and presentation materials.</span></div></div></div></div></section>
 
-  <div class="clause">
-    <span class="clause-num">I.</span>
-    <h2>The name</h2>
-    <p><b class="legal-term">Justicia</b> is the Spanish word for justice, rooted in the Latin <i>iustitia</i>. <b class="legal-term">JusticiAI</b> deliberately overlaps the final “a” of Justicia with the “A” in <b class="legal-term">AI</b>, compressing both ideas into one nine-letter name. The construction gives the brand an immediate legal meaning while keeping artificial intelligence visible in the wordmark itself.</p>
-  </div>
+  <section id="process"><div class="container"><div class="section-head"><div class="eyebrow">Acquisition process</div><h2>A clear path to ownership.</h2></div><div class="process-grid"><div class="process-step"><em>01</em><b>Inquiry</b><span>Submit an offer or request acquisition details.</span></div><div class="process-step"><em>02</em><b>Agreement</b><span>Confirm commercial terms and included assets.</span></div><div class="process-step"><em>03</em><b>Secure transaction</b><span>Complete payment and transfer through an established escrow or marketplace service.</span></div><div class="process-step"><em>04</em><b>Handover</b><span>Receive the domain and agreed supporting brand files.</span></div></div></div></section>
 
-  <div class="clause">
-    <span class="clause-num">II.</span>
-    <h2>The market</h2>
-    <p>Legal AI now spans research, drafting, contract review, compliance, e-discovery, and knowledge workflows across law firms and in-house teams. For a buyer building in this category, the strength of the name is clarity: justice and AI are legible before the product needs explanation.</p>
-  </div>
+  <section class="cta"><div class="container"><h2>Acquire the name behind a clearer water future.</h2><p>Aquairy.com and its supporting brand concept are available for acquisition by a qualified buyer.</p><a class="btn btn-outline" href="#contact" data-contact-open>Start a Conversation</a></div></section>
 
-  <div class="clause">
-    <span class="clause-num">III.</span>
-    <h2>The fit</h2>
-    <p>A name built for the products this market is actually funding right now:</p>
-    <ul class="fit-list">
-      <li><b>Contract Review</b>AI that reads, flags, and redlines agreements</li>
-      <li><b>Legal Research</b>A copilot for case law and precedent</li>
-      <li><b>Compliance</b>Monitoring and reporting for regulated teams</li>
-      <li><b>E-Discovery</b>Document review at litigation scale</li>
-    </ul>
-  </div>
+  <div class="modal" id="contact" role="dialog" aria-modal="true" aria-labelledby="contact-title"><div class="modal-card"><button class="modal-close" type="button" aria-label="Close">×</button><div class="eyebrow">Acquisition inquiry</div><h2 id="contact-title">Make an offer for Aquairy.com</h2><p>Send your inquiry directly to the domain owner. Fields marked with * are required.</p><form class="inquiry-form" id="inquiry-form"><div class="form-row"><div class="field"><label for="name">Name *</label><input id="name" name="name" required maxlength="100" autocomplete="name"></div><div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" required maxlength="160" autocomplete="email"></div></div><div class="form-row"><div class="field"><label for="company">Company</label><input id="company" name="company" maxlength="120" autocomplete="organization"></div><div class="field"><label for="offer">Offer amount (USD)</label><input id="offer" name="offer" inputmode="decimal" maxlength="30" placeholder="Optional"></div></div><div class="field"><label for="message">Message *</label><textarea id="message" name="message" required maxlength="3000" placeholder="Tell us about your interest in Aquairy.com"></textarea></div><div class="hp-field" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div><div class="turnstile-wrap"><div class="cf-turnstile" data-sitekey="0x4AAAAAAEHb4Ya8PsQJScuh" data-theme="dark" data-action="inquiry"></div></div><div class="form-actions"><button class="btn btn-primary" type="submit">Send inquiry</button><span class="form-status" aria-live="polite"></span></div><p class="form-note">Your information is used only to respond to this acquisition inquiry.</p></form></div></div>
 
-  <div class="petition">
-    <h2>Petition for acquisition</h2>
-    <p>This domain is sold as a single asset, transferred via standard escrow. Serious inquiries and offers welcome.</p>
-    <div class="cta-row">
-      <button class="btn btn-primary" type="button" data-open-form="offer" aria-controls="offer-panel" aria-expanded="false">Make an Offer</button>
-      <button class="btn btn-secondary" type="button" data-open-form="question" aria-controls="offer-panel" aria-expanded="false">Ask a Question</button>
-    </div>
-
-    <div class="offer-panel" id="offer-panel" hidden>
-      <div class="success-notice" id="success-notice" hidden>
-        Thank you. Your acquisition inquiry has been submitted.
-      </div>
-      <form class="offer-form" id="offer-form" novalidate>
-        <input type="hidden" name="inquiry_type" id="inquiry-type" value="Offer">
-        <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
-
-        <div class="form-field">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required>
-        </div>
-
-        <div class="form-field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required>
-        </div>
-
-        <div class="form-field">
-          <label for="company">Company</label>
-          <input id="company" name="company" type="text" autocomplete="organization">
-        </div>
-
-        <div class="form-field">
-          <label for="offer-amount">Offer amount (USD)</label>
-          <input id="offer-amount" name="offer_amount_usd" type="number" inputmode="decimal" min="1" step="1" placeholder="USD">
-        </div>
-
-        <div class="form-field full">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us about your interest in JusticiAI.com"></textarea>
-        </div>
-
-        <div class="form-actions">
-          <button class="btn" type="submit" id="submit-offer">Submit Offer</button>
-          <span class="form-note">Confidential acquisition inquiry · Replies are handled by the domain owner.</span>
-          <span class="form-note" id="form-status" role="status" aria-live="polite"></span>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <footer>
-    <span>justiciai.com · <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=offers%40justiciai.com&amp;su=JusticiAI.com%20acquisition%20inquiry" target="_blank" rel="noreferrer">offers@justiciai.com</a></span>
-    <span>Transfer via escrow · Domain only, no assets attached</span>
-  </footer>
-
-</div>
-
-<script>
-  const panel = document.getElementById('offer-panel');
-  const inquiryType = document.getElementById('inquiry-type');
-  const offerAmount = document.getElementById('offer-amount');
-  const submitButton = document.getElementById('submit-offer');
-  const offerForm = document.getElementById('offer-form');
-  const formStatus = document.getElementById('form-status');
-  const message = document.getElementById('message');
-  const successNotice = document.getElementById('success-notice');
-  const openButtons = document.querySelectorAll('[data-open-form]');
-
-  function openInquiryForm(kind) {
-    const isOffer = kind === 'offer';
-    panel.hidden = false;
-    inquiryType.value = isOffer ? 'Offer' : 'Question';
-    offerAmount.required = isOffer;
-    submitButton.textContent = isOffer ? 'Submit Offer' : 'Send Inquiry';
-    message.placeholder = isOffer
-      ? 'Optional context for your offer'
-      : 'What would you like to know about JusticiAI.com?';
-    openButtons.forEach((button) => button.setAttribute('aria-expanded', 'true'));
-    window.setTimeout(() => document.getElementById('name').focus({ preventScroll: true }), 0);
-    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-
-  openButtons.forEach((button) => {
-    button.addEventListener('click', () => openInquiryForm(button.dataset.openForm));
-  });
-
-  offerForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    formStatus.textContent = '';
-    successNotice.hidden = true;
-
-    const formData = new FormData(offerForm);
-    const payload = Object.fromEntries(formData.entries());
-    const isOffer = payload.inquiry_type === 'Offer';
-
-    if (!payload.name || !payload.email || (isOffer && !payload.offer_amount_usd)) {
-      formStatus.textContent = isOffer
-        ? 'Please provide your name, email and offer amount.'
-        : 'Please provide your name and email.';
-      return;
-    }
-
-    submitButton.disabled = true;
-    submitButton.textContent = 'Submitting…';
-
-    try {
-      const response = await fetch('/api/inquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(result.error || 'Unable to submit your inquiry.');
-
-      offerForm.reset();
-      inquiryType.value = isOffer ? 'Offer' : 'Question';
-      successNotice.hidden = false;
-      formStatus.textContent = result.reference ? `Reference: ${result.reference}` : '';
-      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    } catch (error) {
-      formStatus.textContent = error.message || 'Unable to submit your inquiry. Please try again.';
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = isOffer ? 'Submit Offer' : 'Send Inquiry';
-    }
-  });
-</script>
-
+  <footer><div class="container footer-row"><div class="brand"><img class="logo" src="/assets/aquairy-symbol.png" alt=""><span>AQUAIRY<small>WATER INTELLIGENCE</small></span></div><div class="legal">Aquairy is presented as an acquisition-ready brand concept. Product screens, applications and positioning examples are illustrative and do not represent an operating company, customers or deployed technology.</div><div class="footer-contact"><span>Acquisition contact</span><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hello%40aquairy.com&amp;su=Aquairy.com%20acquisition%20inquiry" target="_blank" rel="noreferrer">hello@aquairy.com</a></div><div class="footer-claim">Aquairy.com<br>Available for acquisition</div></div></footer>
+  <script>
+    const modal=document.querySelector('.modal');
+    const form=document.querySelector('#inquiry-form');
+    const status=document.querySelector('.form-status');
+    document.querySelectorAll('[data-contact-open]').forEach(button=>button.addEventListener('click',event=>{event.preventDefault();modal.classList.add('is-open');document.body.style.overflow='hidden';modal.querySelector('.modal-close').focus()}));
+    function closeModal(){const submit=form.querySelector('button[type="submit"]');modal.classList.remove('is-open');document.body.style.overflow='';status.textContent='';status.classList.remove('error');submit.disabled=false;submit.textContent='Send inquiry';form.reset();if(window.turnstile)window.turnstile.reset()}
+    modal.querySelector('.modal-close').addEventListener('click',closeModal);
+    modal.addEventListener('click',event=>{if(event.target===modal)closeModal()});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'&&modal.classList.contains('is-open'))closeModal()});
+    form.addEventListener('submit',async event=>{event.preventDefault();const submit=form.querySelector('button[type="submit"]');submit.disabled=true;submit.textContent='Sending…';status.textContent='';status.classList.remove('error');try{const payload=Object.fromEntries(new FormData(form).entries());payload.turnstileToken=payload['cf-turnstile-response']||'';delete payload['cf-turnstile-response'];const response=await fetch('/api/inquiry',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const result=await response.json();if(!response.ok)throw new Error(result.error||'Unable to send your inquiry.');form.reset();status.textContent='Inquiry sent successfully. We will respond by email.';submit.textContent='Sent'}catch(error){status.textContent=error.message||'Unable to send your inquiry. Please try again.';status.classList.add('error');submit.disabled=false;submit.textContent='Send inquiry';if(window.turnstile)window.turnstile.reset()}});
+  </script>
 </body>
 </html>
