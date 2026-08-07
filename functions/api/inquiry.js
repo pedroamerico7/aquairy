@@ -20,6 +20,12 @@ export async function onRequestPost(context) {
   const { request, env } = context;
 
   if (!env.RESEND_API_KEY || !env.INQUIRY_TO_EMAIL || !env.RESEND_FROM_EMAIL || !env.TURNSTILE_SECRET_KEY) {
+    console.error("Inquiry configuration is incomplete.", {
+      hasResendKey: Boolean(env.RESEND_API_KEY),
+      hasRecipient: Boolean(env.INQUIRY_TO_EMAIL),
+      hasSender: Boolean(env.RESEND_FROM_EMAIL),
+      hasTurnstileSecret: Boolean(env.TURNSTILE_SECRET_KEY)
+    });
     return json({ error: "The inquiry service is not configured yet." }, 503);
   }
 
@@ -70,7 +76,9 @@ export async function onRequestPost(context) {
     return json({ error: "Security verification is temporarily unavailable." }, 503);
   }
 
-  if (!verification.success || verification.action !== "inquiry" || verification.hostname !== "aquairy.com") {
+  const allowedHostnames = new Set(["aquairy.com", "www.aquairy.com"]);
+  if (!verification.success || verification.action !== "inquiry" || !allowedHostnames.has(verification.hostname)) {
+    console.error("Turnstile rejected inquiry:", verification);
     return json({ error: "Security verification failed. Please try again." }, 400);
   }
 
@@ -82,25 +90,33 @@ export async function onRequestPost(context) {
     message: escapeHtml(message).replaceAll("\n", "<br>")
   };
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${env.RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-      "Idempotency-Key": crypto.randomUUID()
-    },
-    body: JSON.stringify({
-      from: env.RESEND_FROM_EMAIL,
-      to: [env.INQUIRY_TO_EMAIL],
-      reply_to: email,
-      subject: `Aquairy.com acquisition inquiry — ${name}`,
-      html: `<div style="font-family:Arial,sans-serif;max-width:640px;color:#0b1f33"><h1 style="font-size:24px">New Aquairy.com inquiry</h1><p><strong>Name:</strong> ${safe.name}</p><p><strong>Email:</strong> ${safe.email}</p><p><strong>Company:</strong> ${safe.company}</p><p><strong>Offer:</strong> ${safe.offer}</p><hr style="border:0;border-top:1px solid #dce7eb"><p><strong>Message</strong></p><p>${safe.message}</p></div>`,
-      text: `New Aquairy.com inquiry\n\nName: ${name}\nEmail: ${email}\nCompany: ${company || "Not provided"}\nOffer: ${offer || "Not provided"}\n\nMessage:\n${message}`,
-      tags: [{ name: "source", value: "aquairy_inquiry" }]
-    })
-  });
+  let response;
+  try {
+    response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+        "Idempotency-Key": crypto.randomUUID()
+      },
+      body: JSON.stringify({
+        from: env.RESEND_FROM_EMAIL,
+        to: [env.INQUIRY_TO_EMAIL],
+        reply_to: email,
+        subject: `Aquairy.com acquisition inquiry — ${name}`,
+        html: `<div style="font-family:Arial,sans-serif;max-width:640px;color:#0b1f33"><h1 style="font-size:24px">New Aquairy.com inquiry</h1><p><strong>Name:</strong> ${safe.name}</p><p><strong>Email:</strong> ${safe.email}</p><p><strong>Company:</strong> ${safe.company}</p><p><strong>Offer:</strong> ${safe.offer}</p><hr style="border:0;border-top:1px solid #dce7eb"><p><strong>Message</strong></p><p>${safe.message}</p></div>`,
+        text: `New Aquairy.com inquiry\n\nName: ${name}\nEmail: ${email}\nCompany: ${company || "Not provided"}\nOffer: ${offer || "Not provided"}\n\nMessage:\n${message}`,
+        tags: [{ name: "source", value: "aquairy_inquiry" }]
+      })
+    });
+  } catch (error) {
+    console.error("Resend request failed:", error);
+    return json({ error: "The message could not be sent. Please try again shortly." }, 502);
+  }
 
   if (!response.ok) {
+    const providerError = await response.text().catch(() => "");
+    console.error("Resend rejected inquiry:", response.status, providerError);
     return json({ error: "The message could not be sent. Please try again shortly." }, 502);
   }
 
